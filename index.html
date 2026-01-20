@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="icon" type="image/png" href="1.JPG">
+  <title>unclick+</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #FFFACD;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Lucida Console";
+      font-style: normal;
+      color: #4292BD;
+      cursor: pointer;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+      padding: 24px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    p {
+      margin-top: 10px;
+      opacity: 0.6;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+
+<body onclick="changeVibe()">
+  <div class="container">
+  <img id="vibeImage" src="1.jpeg" alt="vibe image" /> 
+ <p style="font-size:48px">
+  <h1 id="phrase">CONTIGO, INCLUSO LA DISTANCIA SE SIENTE DISTINTA <p>&#128155;</p> </h1>
+</div>
+
+
+<script>
+  const phrases = [
+    "Tu risa tambien vive en mis recuerdos",
+    "Te amo mi cielo hermoso",
+    "El tiempo es poco, pero mi corazon ya te pertenece",
+    "No necesito entenderlo todo, solo sentirte",
+    "No se hacerlo perfecto, pero si con amor",
+    "Siempre tuya",
+    "No eres ruido, eres calma, compañia y ganas de quedarse",
+    "FELIZ MESANIVERSARIO"
+  ];
+
+  const images = [
+    "1.JPG",
+    "2.JPG",
+    "3.JPG",
+    "4.JPEG",
+    "5.JPG",
+    "6.JPG",
+    "7.JPG",
+    "8.JPG"
+
+  ];
+
+  const phraseEl = document.getElementById("phrase");
+  const imageEl = document.getElementById("vibeImage");
+
+  // ESTADO INICIAL ESTÁ MOSTRANDO EL TEXTO
+  let showing = "text";
+  imageEl.style.display = "none";
+
+  function changeVibe() {
+    if (showing === "text") {
+      // ocultar el texto
+      phraseEl.style.display = "none";
+
+      // mostrar imagen
+      imageEl.src = images[Math.floor(Math.random() * images.length)];
+      imageEl.style.display = "block";
+
+      showing = "image";
+    } else {
+      // ocultar imagen
+      imageEl.style.display = "none";
+
+      // mostrar texto
+      phraseEl.textContent =
+        phrases[Math.floor(Math.random() * phrases.length)];
+      phraseEl.style.display = "block";
+
+      showing = "text";
+    }
+  }
+</script>
+
+</body>
+</html>
